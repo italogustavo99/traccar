@@ -35,7 +35,7 @@ public class MxtFrameDecoder extends FrameDecoder {
 
         int index = buf.indexOf(buf.readerIndex() + 1, buf.writerIndex(), (byte) 0x04);
         if (index != -1) {
-            ChannelBuffer result = ChannelBuffers.buffer(index + 1 - buf.readerIndex());
+            ChannelBuffer result = ChannelBuffers.buffer(ByteOrder.LITTLE_ENDIAN, index + 1 - buf.readerIndex());
 
             while (buf.readerIndex() <= index) {
                 int b = buf.readUnsignedByte();
