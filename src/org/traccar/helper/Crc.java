@@ -124,6 +124,10 @@ public class Crc {
     public static int crc16X25Ccitt(ByteBuffer buf) {
         return crc16Unreflected(buf, crc16CcittStart, crc16CcittTable);
     }
+    
+    public static int crc16X25Ccitt(ByteBuffer buf, int crc16CcittStart) {
+        return crc16Unreflected(buf, crc16CcittStart, crc16CcittTable);
+    }
 
     public static int crc16CcittSeed(ByteBuffer buf, int seed) {
         return crc16Reflected(buf, seed, crc16CcittTableReverse) ^ crc16CcittXorout;
