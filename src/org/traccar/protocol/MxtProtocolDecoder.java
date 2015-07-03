@@ -139,6 +139,10 @@ public class MxtProtocolDecoder extends BaseProtocolDecoder {
             if (BitUtil.check(infoGroups, 7)) {
                 position.set(Event.KEY_RFID, buf.readUnsignedInt());
             }
+            
+            buf.skipBytes(8); // cell info
+
+            int crc = buf.readUnsignedShort();
 
             return position;
         }
